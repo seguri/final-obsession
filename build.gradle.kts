@@ -12,7 +12,7 @@ plugins {
   alias(libs.plugins.changelog) // Gradle Changelog Plugin
   alias(libs.plugins.qodana) // Gradle Qodana Plugin
   alias(libs.plugins.kover) // Gradle Kover Plugin
-  id("com.diffplug.spotless") version "6.18.0" // Spotless plugin
+  alias(libs.plugins.spotless) // Spotless plugin
 }
 
 group = properties("pluginGroup").get()
@@ -107,6 +107,9 @@ tasks {
           }
         }
   }
+
+  // Fix "Only one instance of IDEA can be run at a time" problem
+  buildSearchableOptions { enabled = false }
 
   // Configure UI tests plugin
   // Read more: https://github.com/JetBrains/intellij-ui-test-robot

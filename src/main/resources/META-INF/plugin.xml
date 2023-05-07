@@ -1,18 +1,18 @@
-<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
-<idea-plugin>
-    <id>com.github.seguri.finalobsession</id>
-    <name>final-obsession Template</name>
-    <vendor>seguri</vendor>
+<!-- Plugin Configuration File -> https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin require-restart="false">
+  <id>com.github.seguri.finalobsession</id>
+  <name>Final Obsession</name>
+  <vendor url="https://www.github.com/seguri">Marco Seguri</vendor>
 
-    <depends>com.intellij.modules.platform</depends>
+  <description><![CDATA[
+    Formats the file being saved by adding the `final` keyword to local variables and parameters.
+  ]]></description>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.modules.java</depends>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.seguri.finalobsession.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-    </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.seguri.finalobsession.listeners.MyFrameStateListener" topic="com.intellij.ide.FrameStateListener"/>
-    </applicationListeners>
+  <extensions defaultExtensionNs="com.intellij">
+    <actionOnSave implementation="com.github.seguri.finalobsession.Obsession"
+                  order="after FormatOnSaveAction"/>
+  </extensions>
 </idea-plugin>
