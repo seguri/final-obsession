@@ -4,6 +4,14 @@
 
 ## [Unreleased]
 
+## [0.30.0] - 2023-08-07
+
+### Fixed
+
+- Remove Build Number upper boundary
+
+## [0.29.0] - 2023-05-21
+
 ### Added
 
 - Code formatting on save
